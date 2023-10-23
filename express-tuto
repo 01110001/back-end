@@ -1,0 +1,10 @@
+//post = when user is sending me this data send him this url or data.
+app.post("/disconnect", (req, res) => {
+  res.redirect("/login");
+});
+
+//get == when I use is on this url send him this data.
+app.get("/toDo", (req, res) => {
+  const username = req.query.username;
+  res.render("toDo", { username });
+});
