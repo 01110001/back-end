@@ -1,0 +1,16 @@
+//this code would be in server.js file
+
+const db = new sqlite3.Database("testDB.db", (err) => {
+  if (err) {
+    console.error(err.message);
+  } else {
+    console.log("Connected to SQLite database.");
+    db.run(
+      "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT NOT NULL, password TEXT NOT NULL, email TEXT NOT NULL)" // this is the query
+    );
+    // Create todos table
+    db.run(
+      "CREATE TABLE IF NOT EXISTS todos (id INTEGER PRIMARY KEY, username TEXT NOT NULL, item TEXT NOT NULL)"
+    );
+  }
+});
